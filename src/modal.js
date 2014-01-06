@@ -80,9 +80,17 @@ angular.module('so.modal', []).
                     attach(html);
                 });
 
+                function wrapInBootstrapModal(html) {
+                    return '<div class="modal fade in" style="display:block; " ng-click="$close($event)"><div class="modal-dialog"><div class="modal-content">' +
+                        html +
+                        '</div></div></div>';
+                }
 
                 function attach (html) {
-                    element = angular.element(html);
+                    var wrapped = wrapInBootstrapModal(html);
+
+                    element = angular.element(wrapped);
+
                     container.prepend(element);
                     var scope = $rootScope.$new();
 

@@ -1,8 +1,6 @@
-<div class="modal fade in" ng-style="{display: 'block'}" ng-click="$close($event)">
-    <div class="modal-dialog">
-        <div class="modal-content">
+
             <div class="modal-header">
-                <button type="button" ng-click="$close($event)" class="close btn-inverse">&times;</button>
+                <button type="button" ng-click="modalCtrl.closeMe()" class="close btn-inverse">&times;</button>
                 <h4 class="modal-title">Modal title</h4>
             </div>
             <div class="modal-body">
@@ -16,6 +14,4 @@
                 <button type="button" class="btn btn-default" ng-click="modalCtrl.closeMe()">Close</button>
                 <button type="button" class="btn btn-primary" ng-click="modalCtrl.closeWithSelected()">Save changes</button>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+
