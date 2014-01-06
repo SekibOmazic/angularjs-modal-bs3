@@ -112,12 +112,12 @@ angular.module('so.modal', []).
             },
 
             close: function() {
-                dismiss();
+                removeElements();
             },
 
             success: function(result) {
                 successFn(result);
-                dismiss();
+                removeElements();
             }
 
         };

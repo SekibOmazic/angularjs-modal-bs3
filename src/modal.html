@@ -6,11 +6,15 @@
                 <h4 class="modal-title">Modal title</h4>
             </div>
             <div class="modal-body">
-                <p>One fine body&hellip;</p>
+                <p>Choose one</p>
+                <ul>
+                    <li ng-repeat="item in modalCtrl.items"><a href data-ng-click="modalCtrl.select(item)">{{item}}</a></li>
+                </ul>
+                <div> Selected: {{ modalCtrl.selected }}</div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" ng-click="$close($event)">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-default" ng-click="modalCtrl.closeMe()">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="modalCtrl.closeWithSelected()">Save changes</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

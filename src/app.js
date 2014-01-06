@@ -8,7 +8,7 @@ angular.module('myApp', [
 
         var ctrl = this;
 
-        ctrl.tickCount = 5;
+        ctrl.items = ['item1', 'item2', 'item3'];
 
         ctrl.closeMe = function () {
             Modal.close();
@@ -16,6 +16,9 @@ angular.module('myApp', [
 
         ctrl.select = function(param) {
             ctrl.selected = param;
+        };
+
+        ctrl.closeWithSelected = function(param) {
             Modal.success(ctrl.selected);
         };
 
