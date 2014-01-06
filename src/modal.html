@@ -1,17 +1,17 @@
+<div class="modal-header">
+    <button type="button" ng-click="modalCtrl.closeMe()" class="close btn-inverse">&times;</button>
+    <h4 class="modal-title">Modal title</h4>
+</div>
 
-            <div class="modal-header">
-                <button type="button" ng-click="modalCtrl.closeMe()" class="close btn-inverse">&times;</button>
-                <h4 class="modal-title">Modal title</h4>
-            </div>
-            <div class="modal-body">
-                <p>Choose one</p>
-                <ul>
-                    <li ng-repeat="item in modalCtrl.items"><a href data-ng-click="modalCtrl.select(item)">{{item}}</a></li>
-                </ul>
-                <div> Selected: {{ modalCtrl.selected }}</div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" ng-click="modalCtrl.closeMe()">Close</button>
-                <button type="button" class="btn btn-primary" ng-click="modalCtrl.closeWithSelected()">Save changes</button>
-            </div>
+<div class="modal-body">
+    <p>Choose one</p>
+    <ul>
+        <li ng-repeat="item in modalCtrl.items"><a href data-ng-click="modalCtrl.select(item)">{{item}}</a></li>
+    </ul>
+    <div> Selected: {{ modalCtrl.selected }}</div>
+</div>
 
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="modalCtrl.closeMe()">Close</button>
+    <button type="button" class="btn btn-primary" ng-click="modalCtrl.closeWithSelected()">Save changes</button>
+</div>

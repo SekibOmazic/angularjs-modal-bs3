@@ -2,8 +2,7 @@ angular.module('myApp', [
         'so.modal'
     ]).
 
-    // typically you'll inject the modal service into its own
-    // controller so that the modal can close itself
+    // modal injected into its own controller so that the modal can close itself
     controller('MyModalCtrl', ['Modal', function (Modal) {
 
         var ctrl = this;
@@ -24,7 +23,7 @@ angular.module('myApp', [
 
         //ctrl.template=Modal.template;
     }])
-
+/*
     .controller('NestedCtrl', ['Modal', function(Modal) {
         var ctrl = this;
 
@@ -33,7 +32,7 @@ angular.module('myApp', [
         };
 
     }])
-
+*/
     .controller('MyCtrl', ['Modal', function (Modal) {
         var ctrl = this;
 
