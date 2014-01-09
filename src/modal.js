@@ -39,8 +39,6 @@ angular.module('so.modal', []).
         });
 
         return {
-            // TODO: change this later
-            //template: "modal-nested.html",
 
             open: function (config) {
 

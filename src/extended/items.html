@@ -1,0 +1,22 @@
+<div ng-controller="ItemsCtrl as ctrl">
+
+    <div class="modal-header">
+        <button type="button" ng-click="ctrl.closeDialog()" class="close btn-inverse">&times;</button>
+        <h4 class="modal-title">DUMMY title</h4>
+    </div>
+
+    <div class="modal-body">
+        <p>Choose one</p>
+        <ul>
+            <li ng-repeat="item in ctrl.items"><a href data-ng-click="ctrl.choose(item)">{{item}}</a></li>
+        </ul>
+        <div> Selected: {{ ctrl.selected }}</div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-ng-click="ctrl.closeDialog()">Close</button>
+        <button type="button" class="btn btn-primary" data-ng-click="ctrl.closeWithSelectedItem()">Save changes</button>
+        <button type="button" class="btn btn-danger"  data-ng-click="ctrl.forward()">Family</button>
+    </div>
+
+</div>
