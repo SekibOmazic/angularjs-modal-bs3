@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('so.modal.bs', []).
-    factory('BsModal', function ($document, $compile, $rootScope, $controller, $q, $http, $templateCache) {
+    factory('BsModal', function ($document, $compile, $rootScope, $controller) {
 
         var element = null,
             backdropEl = null,
             successFn = null,
             esc,
             //currentTemplate,
-            //templateStack = [],
+            templateStack = [],
             opened = false;
 
         function removeElements() {
@@ -20,6 +20,9 @@ angular.module('so.modal.bs', []).
                 backdropEl.remove();
                 backdropEl = null;
             }
+
+            templateStack.length = 0;
+            opened = false;
         }
 
         function dismiss(evt) {
@@ -46,6 +49,10 @@ angular.module('so.modal.bs', []).
             currentTemplate: { url: ''},
 
             open: function (config) {
+
+                if (opened) {
+                    return;
+                }
 
                 if ((+!!config.template) + (+!!config.templateUrl) !== 1) {
                     throw new Error('Expected modal to have exactly one of either `template` or `templateUrl`');
@@ -92,14 +99,24 @@ angular.module('so.modal.bs', []).
                     container.append(backdropEl);
                 }
 
+                templateStack.push(config.templateUrl);
+                opened = true;
             },
 
             close: function() {
                 removeElements();
             },
 
-            switchTo: function(template) {
+            next: function(template) {
                 this.currentTemplate.url = template;
+                templateStack.push(template);
+            },
+
+            back: function() {
+                if (templateStack.length > 1) {
+                    this.currentTemplate.url = templateStack[templateStack.length-2];
+                    templateStack.pop();
+                }
             },
 
             success: function(result) {

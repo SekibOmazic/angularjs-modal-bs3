@@ -82,7 +82,7 @@ angular.module('myApp', [
         };
 
         ctrl.forward = function() {
-            Modal.switchTo('src/extended/family-members.html');
+            Modal.next('src/extended/family-members.html');
         }
     }])
 
@@ -103,4 +103,8 @@ angular.module('myApp', [
         ctrl.closeWithSelectedFamilyMember = function() {
             Modal.success(ctrl.selected);
         };
+
+        ctrl.back = function() {
+            Modal.back();
+        }
     }]);
